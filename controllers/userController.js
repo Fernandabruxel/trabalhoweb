@@ -1,7 +1,9 @@
 const dataManager = require('../models/userModel');
 
 // exibe a tela principal
-exports.homePage = (req, res) => {
+exports.homePage = (req, res) => { 
+// req = objeto com dados da requisicao 
+// res = objeto com metodos para enviar resposta
     res.render('home');
 };
 
@@ -20,7 +22,7 @@ exports.itemsList = (req, res) => {
 
 // registra um novo item no sistema
 exports.addItem = (req, res) => {
-    const { nome, preco } = req.body;
+    const { nome, preco } = req.body; // req.body contem os dados enviados
     
     dataManager.add({
         id: Date.now(),
