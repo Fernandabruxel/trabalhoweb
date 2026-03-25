@@ -2,9 +2,10 @@
 
 <div class="container">
     <h1>Gerenciamento de Produtos</h1>
-    
+     // <%= %> = renderiza o conteudo
     <h2><%= produtoEditar ? 'Alterar Produto' : 'Cadastrar Novo' %></h2>
-    
+
+    // action = para onde o formulário vai enviar os dados
     <form action="<%= produtoEditar ? '/produtos/editar/' + produtoEditar.id : '/produtos/adicionar' %>" method="POST">
         <input type="text" name="nome" value="<%= produtoEditar ? produtoEditar.nome : '' %>" placeholder="Nome do produto" required><br><br>
         <input type="number" name="preco" step="0.01" value="<%= produtoEditar ? produtoEditar.preco : '' %>" placeholder="Valor do produto" required><br><br>
@@ -19,6 +20,7 @@
         <p>Nenhum produto foi cadastrado ainda.</p>
     <% } else { %>
         <ul>
+             // forEach = loop que percorre cada produto
             <% produtos.forEach(item => { %>
                 <li>
                     <strong><%= item.nome %></strong> - Valor: R$ <%= parseFloat(item.preco).toFixed(2) %>
