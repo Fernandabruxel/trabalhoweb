@@ -1,0 +1,33 @@
+<%- include('partials/header') %>
+
+<div class="container">
+    <h1>Gerenciamento de Produtos</h1>
+    
+    <h2><%= produtoEditar ? 'Alterar Produto' : 'Cadastrar Novo' %></h2>
+    
+    <form action="<%= produtoEditar ? '/produtos/editar/' + produtoEditar.id : '/produtos/adicionar' %>" method="POST">
+        <input type="text" name="nome" value="<%= produtoEditar ? produtoEditar.nome : '' %>" placeholder="Nome do produto" required><br><br>
+        <input type="number" name="preco" step="0.01" value="<%= produtoEditar ? produtoEditar.preco : '' %>" placeholder="Valor do produto" required><br><br>
+        <button type="submit"><%= produtoEditar ? 'Confirmar Alteração' : 'Cadastrar' %></button>
+    </form>
+    
+    <hr>
+    
+    <h2>Produtos Cadastrados</h2>
+    
+    <% if(produtos.length === 0) { %>
+        <p>Nenhum produto foi cadastrado ainda.</p>
+    <% } else { %>
+        <ul>
+            <% produtos.forEach(item => { %>
+                <li>
+                    <strong><%= item.nome %></strong> - Valor: R$ <%= parseFloat(item.preco).toFixed(2) %>
+                    <a href="/produtos/excluir/<%= item.id %>"> [Remover]</a>
+                    <a href="/produtos/editar/<%= item.id %>"> [Alterar]</a>
+                </li>
+            <% }) %>
+        </ul>
+    <% } %>
+</div>
+
+<%- include('partials/footer') %>

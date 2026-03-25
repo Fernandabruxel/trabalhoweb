@@ -1,0 +1,20 @@
+<%- include('partials/header') %>
+
+<div class="container">
+    <h1>Entre em Contato</h1>
+    
+    <form action="#" method="get">
+        <label>Seu Nome:</label><br>
+        <input type="text" name="nome" placeholder="Digite seu nome"><br><br>
+        
+        <label>Seu E-mail:</label><br>
+        <input type="email" name="email" placeholder="Digite seu e-mail"><br><br>
+        
+        <label>Sua Mensagem:</label><br>
+        <textarea name="mensagem" rows="5" cols="30" placeholder="Digite sua mensagem"></textarea><br><br>
+        
+        <button type="button" onclick="alert('Formulário apenas para demonstração - Nenhum dado foi enviado')">Enviar Mensagem</button>
+    </form>
+</div>
+
+<%- include('partials/footer') %>
